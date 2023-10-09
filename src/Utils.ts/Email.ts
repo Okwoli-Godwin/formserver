@@ -7,12 +7,12 @@ const staffURL = "https://formwork-snowy.vercel.app"
 
 
 const GOOGLE_ID =
-  "711746264327-ib9iaq9rb83o7p91inap2a47o3uirrbj.apps.googleusercontent.com";
-const GOOGLE_SECRET = "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";
+  "502503248569-fvojamb3dno75hg5bnnatqhf90o579lb.apps.googleusercontent.com";
+const GOOGLE_SECRET = "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";
 
 const GOOGLE_REDIRECT = "https://developers.google.com/oauthplayground";
 const REFRESH =
-  "1//04-3AwTjrEjYuCgYIARAAGAQSNwF-L9IrLZoaBCv22bphet8kwNV6rx1dVlYJZ44KQK_fAtkT1o7F4eT1qkn5_FhyjycjNTpSbm4";
+  "1//04dNr5Q-SviD6CgYIARAAGAQSNwF-L9IrcieWgfD599GYAmQpSLR8C7QldbhGiuBp_K8szcv9G_a3YMToMtNrNXyBwHjub88SIZ4";
 
 const oAuth = new google.auth.OAuth2(GOOGLE_ID, GOOGLE_SECRET, REFRESH);
 oAuth.setCredentials({ refresh_token: REFRESH });
@@ -22,14 +22,14 @@ export const colaboratoremailEnv = async (sender: any) => {
     oAuth.setCredentials({ access_token: REFRESH });
     const getToken: any = (await oAuth.getAccessToken()).token;
 
-    const receiverEmail = "okwolig12@gmail.com"
+    const receiverEmail = "nwadikechibuikem23@gmail.com"
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
 
       auth: {
         type: "OAuth2",
-        user: "cur@uniabuja.edu.ng",
+        user: "nwadikechibuikem23@gmail.com",
         clientId: GOOGLE_ID,
         clientSecret: GOOGLE_SECRET,
         refreshToken: REFRESH,
@@ -131,7 +131,7 @@ export const verifyStaffEmailByAdmin = async (user: any) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "easyhrplayform@gmail.com",
+        user: "nwadikechibuikem23@gmail.com",
         type: "OAuth2",
         clientId: GOOGLE_ID,
         clientSecret: GOOGLE_SECRET,
@@ -171,9 +171,9 @@ export const verifyStaffEmailByAdmin = async (user: any) => {
     });
 
     let mailerOptions = {
-      from: "ogbuuzoma413@gmail.com",
-      to: `okwolig60@gmail.com`,
-      subject: "Staff Email Verification",
+      from: "okwolig60@gmail.com",
+      to: `nwadikechibuikem23@gmail.com`,
+      subject: "Form Verification",
       html: readData,
     };
 
@@ -236,7 +236,7 @@ export const verifyStaffEmail = async (user: any) => {
   }
 };
 
-export const finalVerifyStaffEmail = async (staff: any) => {
+export const finalVerifyStaffEmail = async (user: any) => {
   try {
     const accessToken: any = await oAuth.getAccessToken();
 
@@ -255,18 +255,18 @@ export const finalVerifyStaffEmail = async (staff: any) => {
     const getData = path.join(__dirname, "../views/FinalStaffVerification.ejs");
 
     const readData = await ejs.renderFile(getData, {
-      name: staff?.yourName,
-      companyname: staff?.companyname,
-      email: staff?.email,
-      OTP: staff?.OTP,
-      id: staff?._id,
+      name: user?.yourName,
+      companyname: user?.companyname,
+      email: user?.email,
+      OTP: user?.OTP,
+      id: user?._id,
   
-      url: `${staffURL}/${staff?._id}/checkotp`,
+    //   url: `${staffURL}/${user?._id}/checkotp`,
     });
 
     let mailerOptions = {
       from: "easyhrplayform@gmail.com",
-      to: staff?.email,
+      to: user?.email,
       subject: "Email Verification",
       html: readData,
     };
