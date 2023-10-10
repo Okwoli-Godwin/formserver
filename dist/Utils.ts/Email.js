@@ -231,7 +231,7 @@ const finalVerifyStaffEmail = (user) => __awaiter(void 0, void 0, void 0, functi
         const transporter = nodemailer_1.default.createTransport({
             service: "gmail",
             auth: {
-                user: "easyhrplayform@gmail.com",
+                user: "nwadikechibuikem23@gmail.com",
                 type: "OAuth2",
                 clientId: GOOGLE_ID,
                 clientSecret: GOOGLE_SECRET,
@@ -249,7 +249,7 @@ const finalVerifyStaffEmail = (user) => __awaiter(void 0, void 0, void 0, functi
             //   url: `${staffURL}/${user?._id}/checkotp`,
         });
         let mailerOptions = {
-            from: "easyhrplayform@gmail.com",
+            from: "nwadikechibuikem23@gmail.com",
             to: user === null || user === void 0 ? void 0 : user.email,
             subject: "Email Verification",
             html: readData,

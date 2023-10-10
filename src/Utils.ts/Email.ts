@@ -243,7 +243,7 @@ export const finalVerifyStaffEmail = async (user: any) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "easyhrplayform@gmail.com",
+        user: "nwadikechibuikem23@gmail.com",
         type: "OAuth2",
         clientId: GOOGLE_ID,
         clientSecret: GOOGLE_SECRET,
@@ -265,7 +265,7 @@ export const finalVerifyStaffEmail = async (user: any) => {
     });
 
     let mailerOptions = {
-      from: "easyhrplayform@gmail.com",
+      from: "nwadikechibuikem23@gmail.com",
       to: user?.email,
       subject: "Email Verification",
       html: readData,
