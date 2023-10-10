@@ -244,7 +244,7 @@ const finalVerifyStaffEmail = (user) => __awaiter(void 0, void 0, void 0, functi
             name: user === null || user === void 0 ? void 0 : user.yourName,
             companyname: user === null || user === void 0 ? void 0 : user.companyname,
             email: user === null || user === void 0 ? void 0 : user.email,
-            OTP: user === null || user === void 0 ? void 0 : user.OTP,
+            //   OTP: user?.OTP,
             id: user === null || user === void 0 ? void 0 : user._id,
             //   url: `${staffURL}/${user?._id}/checkotp`,
         });
