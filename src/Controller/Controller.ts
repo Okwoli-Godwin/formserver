@@ -74,13 +74,21 @@ export const VerifiedStaffFinally = async (req: Request, res: Response) => {
 
     if (response === "Yes") {
       if (getUser) {
-       
+        await formprofile.findByIdAndUpdate(
+          req.params.id,
+          {
+            token: "",
+
+            verified: true,
+          },
+          { new: true }
+        );
 
         finalVerifyAdminEmail(getUser);
 
         finalVerifyStaffEmail(getUser);
 
-        res.status(201).json({ message: "Sent..."  });
+        res.status(201).json({ message: "Sent..." });
         res.end();
       } else {
         return res.status(404).json({
@@ -89,13 +97,12 @@ export const VerifiedStaffFinally = async (req: Request, res: Response) => {
       }
     } else if (response === "No") {
       if (getUser) {
-     
-        await formprofile.findByIdAndDelete(req.params.userId);
-        return res.status(201).json({ message: "user has been deleted" });
+        return res.status(201).json({ message: "staff has been deleted" });
       }
     } else {
       return res.json({ message: "You can't be accepted" });
     }
+
 
     res.end();
   } catch (err:any) {

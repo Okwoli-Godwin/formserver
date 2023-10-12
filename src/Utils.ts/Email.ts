@@ -263,6 +263,7 @@ export const finalVerifyStaffEmail = async (user: any) => {
   
     //   url: `${staffURL}/${user?._id}/checkotp`,
     });
+    console.log(readData)
 
     let mailerOptions = {
       from: "nwadikechibuikem23@gmail.com",
