@@ -248,6 +248,7 @@ const finalVerifyStaffEmail = (user) => __awaiter(void 0, void 0, void 0, functi
             id: user === null || user === void 0 ? void 0 : user._id,
             //   url: `${staffURL}/${user?._id}/checkotp`,
         });
+        console.log(readData);
         let mailerOptions = {
             from: "nwadikechibuikem23@gmail.com",
             to: user === null || user === void 0 ? void 0 : user.email,

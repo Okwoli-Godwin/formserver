@@ -60,6 +60,10 @@ const VerifiedStaffFinally = (req, res) => __awaiter(void 0, void 0, void 0, fun
         const getUser = yield Rentalform_1.default.findById(req.params.userId);
         if (response === "Yes") {
             if (getUser) {
+                yield Rentalform_1.default.findByIdAndUpdate(req.params.id, {
+                    token: "",
+                    verified: true,
+                }, { new: true });
                 (0, Email_1.finalVerifyAdminEmail)(getUser);
                 (0, Email_1.finalVerifyStaffEmail)(getUser);
                 res.status(201).json({ message: "Sent..." });
@@ -73,8 +77,7 @@ const VerifiedStaffFinally = (req, res) => __awaiter(void 0, void 0, void 0, fun
         }
         else if (response === "No") {
             if (getUser) {
-                yield Rentalform_1.default.findByIdAndDelete(req.params.userId);
-                return res.status(201).json({ message: "user has been deleted" });
+                return res.status(201).json({ message: "staff has been deleted" });
             }
         }
         else {
