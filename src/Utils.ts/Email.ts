@@ -7,12 +7,12 @@ const staffURL = "https://formwork-snowy.vercel.app"
 
 
 const GOOGLE_ID =
-  "502503248569-fvojamb3dno75hg5bnnatqhf90o579lb.apps.googleusercontent.com";
-const GOOGLE_SECRET = "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";
+  "725355026245-j03hflqgrpoj3kf6ed7p9lc7smh235r2.apps.googleusercontent.com";
+const GOOGLE_SECRET = "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";
 
 const GOOGLE_REDIRECT = "https://developers.google.com/oauthplayground";
 const REFRESH =
-  "1//04dNr5Q-SviD6CgYIARAAGAQSNwF-L9IrcieWgfD599GYAmQpSLR8C7QldbhGiuBp_K8szcv9G_a3YMToMtNrNXyBwHjub88SIZ4";
+  "1//04rSIqN1Uid2HCgYIARAAGAQSNwF-L9IrSKASc07TvBODCja1fd2GBehaJCQw5gjfF0oXrB0pJEvW07_J0q9GeKUpI7sVuRmlLeE";
 
 const oAuth = new google.auth.OAuth2(GOOGLE_ID, GOOGLE_SECRET, REFRESH);
 oAuth.setCredentials({ refresh_token: REFRESH });
