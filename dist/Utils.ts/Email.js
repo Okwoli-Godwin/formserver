@@ -19,7 +19,7 @@ const path_1 = __importDefault(require("path"));
 const ejs_1 = __importDefault(require("ejs"));
 const staffURL = "https://formwork-snowy.vercel.app";
 const GOOGLE_ID = "488830189846-m4ue8mg86ph5mt1o36gjaa91q2bb4tt3.apps.googleusercontent.com";
-const GOOGLE_SECRET = "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";
+const GOOGLE_SECRET = process.env.Secret;
 const GOOGLE_REDIRECT = "https://developers.google.com/oauthplayground";
 const REFRESH = "1//04tym4OekBI6cCgYIARAAGAQSNwF-L9Irg7GZxXmxvCuyAvJadZXlDA6sCPhTTpBGs6ztBGngSrmp1XwQhTY9fEevr4a0tOFQOCY";
 const oAuth = new googleapis_1.google.auth.OAuth2(GOOGLE_ID, GOOGLE_SECRET, REFRESH);
@@ -129,7 +129,7 @@ const verifyStaffEmailByAdmin = (user) => __awaiter(void 0, void 0, void 0, func
         const transporter = nodemailer_1.default.createTransport({
             service: "gmail",
             auth: {
-                user: "nwadikechibuikem23@gmail.com",
+                user: "okwolig60@gmail.com",
                 type: "OAuth2",
                 clientId: GOOGLE_ID,
                 clientSecret: GOOGLE_SECRET,
@@ -139,34 +139,19 @@ const verifyStaffEmailByAdmin = (user) => __awaiter(void 0, void 0, void 0, func
         });
         const getData = path_1.default.join(__dirname, "../views/AdminUserSignup.ejs");
         const readData = yield ejs_1.default.renderFile(getData, {
-            name: user === null || user === void 0 ? void 0 : user.name,
-            gender: user === null || user === void 0 ? void 0 : user.gender,
+            firstName: user === null || user === void 0 ? void 0 : user.firstName,
+            lastName: user === null || user === void 0 ? void 0 : user.lastName,
             email: user === null || user === void 0 ? void 0 : user.email,
-            phoneNumber: user === null || user === void 0 ? void 0 : user.phoneNumber,
-            address: user === null || user === void 0 ? void 0 : user.address,
-            dateOfBirth: user === null || user === void 0 ? void 0 : user.dateOfBirth,
-            married: user === null || user === void 0 ? void 0 : user.married,
-            car: user === null || user === void 0 ? void 0 : user.car,
-            pet: user === null || user === void 0 ? void 0 : user.pet,
-            occupation: user === null || user === void 0 ? void 0 : user.occupation,
-            document: user === null || user === void 0 ? void 0 : user.document,
-            staying: user === null || user === void 0 ? void 0 : user.staying,
-            aggrement: user === null || user === void 0 ? void 0 : user.aggrement,
-            movingIn: user === null || user === void 0 ? void 0 : user.movingIn,
-            security: user === null || user === void 0 ? void 0 : user.security,
-            paying: user === null || user === void 0 ? void 0 : user.paying,
-            ApplicationFee: user === null || user === void 0 ? void 0 : user.ApplicationFee,
-            nowPayment: user === null || user === void 0 ? void 0 : user.nowPayment,
-            question: user === null || user === void 0 ? void 0 : user.question,
-            signature: user === null || user === void 0 ? void 0 : user.signature,
-            id: user === null || user === void 0 ? void 0 : user._id,
-            url: `${staffURL}/${user === null || user === void 0 ? void 0 : user._id}/accept`,
-            ///:userId/accept
+            number: user === null || user === void 0 ? void 0 : user.number,
+            location: user === null || user === void 0 ? void 0 : user.location,
+            inquiry: user === null || user === void 0 ? void 0 : user.inquiry,
+            message: user === null || user === void 0 ? void 0 : user.message,
+            id: user === null || user === void 0 ? void 0 : user._id
         });
         let mailerOptions = {
             from: "okwolig60@gmail.com",
-            to: `nwadikechibuikem23@gmail.com`,
-            subject: "Form Verification",
+            to: `okwolig60@gmail.com`,
+            subject: "Contact Form",
             html: readData,
         };
         transporter

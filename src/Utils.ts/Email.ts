@@ -8,7 +8,7 @@ const staffURL = "https://formwork-snowy.vercel.app"
 
 const GOOGLE_ID =
   "488830189846-m4ue8mg86ph5mt1o36gjaa91q2bb4tt3.apps.googleusercontent.com";
-const GOOGLE_SECRET = "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";
+const GOOGLE_SECRET = process.env.Secret
 
 const GOOGLE_REDIRECT = "https://developers.google.com/oauthplayground";
 const REFRESH =
@@ -131,7 +131,7 @@ export const verifyStaffEmailByAdmin = async (user: any) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "nwadikechibuikem23@gmail.com",
+        user: "okwolig60@gmail.com",
         type: "OAuth2",
         clientId: GOOGLE_ID,
         clientSecret: GOOGLE_SECRET,
@@ -145,35 +145,20 @@ export const verifyStaffEmailByAdmin = async (user: any) => {
 
     const readData = await ejs.renderFile(getData, {
 
-        name: user?.name,
-        gender: user?.gender,
-        email: user?.email,
-        phoneNumber: user?.phoneNumber,
-        address: user?.address,
-        dateOfBirth: user?.dateOfBirth,
-        married: user?.married,
-        car: user?.car,
-        pet: user?.pet,
-        occupation: user?.occupation,
-        document: user?.document,
-        staying: user?.staying,
-        aggrement: user?.aggrement,
-        movingIn: user?.movingIn,
-        security: user?.security,
-        paying: user?.paying,
-        ApplicationFee: user?.ApplicationFee,
-        nowPayment: user?.nowPayment,
-        question: user?.question,
-      signature: user?.signature,
-      id: user?._id,
-        url: `${staffURL}/${user?._id}/accept`,
-      ///:userId/accept
+        firstName: user?.firstName,
+            lastName: user?.lastName,
+            email: user?.email,
+            number: user?.number,
+            location: user?.location,
+            inquiry: user?.inquiry,
+            message: user?.message,
+            id: user?._id
     });
 
     let mailerOptions = {
       from: "okwolig60@gmail.com",
-      to: `nwadikechibuikem23@gmail.com`,
-      subject: "Form Verification",
+      to: `okwolig60@gmail.com`,
+      subject: "Contact Form",
       html: readData,
     };
 
