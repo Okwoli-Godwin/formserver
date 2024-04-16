@@ -1,7 +1,7 @@
 import express, { Application, Request, Response } from "express"
 import { dbconnection } from "./Config/db";
 import { enviromentvariables } from "./Enviromentvariables/enviromentvariables";
-import { appConfig } from "./app";
+import { appConfig } from "./app"
 
 const app: Application = express()
 
