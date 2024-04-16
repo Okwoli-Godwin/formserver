@@ -8,7 +8,7 @@ const staffURL = "https://formwork-snowy.vercel.app"
 
 const GOOGLE_ID =
   "488830189846-m4ue8mg86ph5mt1o36gjaa91q2bb4tt3.apps.googleusercontent.com";
-const GOOGLE_SECRET = process.env.Secret
+const GOOGLE_SECRET = "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"
 
 const GOOGLE_REDIRECT = "https://developers.google.com/oauthplayground";
 const REFRESH =
