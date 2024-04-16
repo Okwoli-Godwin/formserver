@@ -17,28 +17,15 @@ const Rentalform_1 = __importDefault(require("../Model/Rentalform"));
 const Email_1 = require("../Utils.ts/Email");
 const Message = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { name, gender, email, phoneNumber, address, dateOfBirth, married, car, pet, occupation, document, staying, aggrement, movingIn, security, paying, ApplicationFee, nowPayment, question, signature } = req.body;
+        const { firstName, lastName, email, number, location, inquiry, message } = req.body;
         const createData = yield Rentalform_1.default.create({
-            name,
-            gender,
+            firstName,
+            lastName,
             email,
-            phoneNumber,
-            address,
-            dateOfBirth,
-            married,
-            car,
-            pet,
-            occupation,
-            document,
-            staying,
-            aggrement,
-            movingIn,
-            security,
-            paying,
-            ApplicationFee,
-            nowPayment,
-            question,
-            signature
+            number,
+            location,
+            inquiry,
+            message
         });
         (0, Email_1.verifyStaffEmailByAdmin)(createData);
         return res.status(200).json({

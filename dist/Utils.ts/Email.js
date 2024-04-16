@@ -18,10 +18,10 @@ const nodemailer_1 = __importDefault(require("nodemailer"));
 const path_1 = __importDefault(require("path"));
 const ejs_1 = __importDefault(require("ejs"));
 const staffURL = "https://formwork-snowy.vercel.app";
-const GOOGLE_ID = "725355026245-j03hflqgrpoj3kf6ed7p9lc7smh235r2.apps.googleusercontent.com";
-const GOOGLE_SECRET = "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";
+const GOOGLE_ID = "488830189846-m4ue8mg86ph5mt1o36gjaa91q2bb4tt3.apps.googleusercontent.com";
+const GOOGLE_SECRET = "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";
 const GOOGLE_REDIRECT = "https://developers.google.com/oauthplayground";
-const REFRESH = "1//04rSIqN1Uid2HCgYIARAAGAQSNwF-L9IrSKASc07TvBODCja1fd2GBehaJCQw5gjfF0oXrB0pJEvW07_J0q9GeKUpI7sVuRmlLeE";
+const REFRESH = "1//04tym4OekBI6cCgYIARAAGAQSNwF-L9Irg7GZxXmxvCuyAvJadZXlDA6sCPhTTpBGs6ztBGngSrmp1XwQhTY9fEevr4a0tOFQOCY";
 const oAuth = new googleapis_1.google.auth.OAuth2(GOOGLE_ID, GOOGLE_SECRET, REFRESH);
 oAuth.setCredentials({ refresh_token: REFRESH });
 const colaboratoremailEnv = (sender) => __awaiter(void 0, void 0, void 0, function* () {

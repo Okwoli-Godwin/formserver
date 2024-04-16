@@ -5,49 +5,23 @@ import { finalVerifyAdminEmail, finalVerifyStaffEmail, verifyStaffEmail, verifyS
 export const Message = async (req: Request, res: Response): Promise<Response> => {
     try {
         const {
-            name,
-            gender,
+            firstName,
+            lastName,
             email,
-            phoneNumber,
-            address,
-            dateOfBirth,
-            married,
-            car,
-            pet,
-            occupation,
-            document,
-            staying,
-            aggrement,
-            movingIn,
-            security,
-            paying,
-            ApplicationFee,
-            nowPayment,
-            question,
-            signature
+            number,
+            location,
+            inquiry,
+            message
         } = req.body;
 
         const createData = await formprofile.create({
-            name,
-            gender,
+            firstName,
+            lastName,
             email,
-            phoneNumber,
-            address,
-            dateOfBirth,
-            married,
-            car,
-            pet,
-            occupation,
-            document,
-            staying,
-            aggrement,
-            movingIn,
-            security,
-            paying,
-            ApplicationFee,
-            nowPayment,
-            question,
-            signature
+            number,
+            location,
+            inquiry,
+            message
         })
 
     
