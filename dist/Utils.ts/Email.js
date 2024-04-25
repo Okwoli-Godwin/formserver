@@ -18,10 +18,10 @@ const nodemailer_1 = __importDefault(require("nodemailer"));
 const path_1 = __importDefault(require("path"));
 const ejs_1 = __importDefault(require("ejs"));
 const staffURL = "https://formwork-snowy.vercel.app";
-const GOOGLE_ID = "488830189846-m4ue8mg86ph5mt1o36gjaa91q2bb4tt3.apps.googleusercontent.com";
-const GOOGLE_SECRET = "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";
+const GOOGLE_ID = "1058807818403-9k1qopfn64mdm7k3abn4vjl39ro9h02u.apps.googleusercontent.com";
+const GOOGLE_SECRET = "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";
 const GOOGLE_REDIRECT = "https://developers.google.com/oauthplayground";
-const REFRESH = "1//04tym4OekBI6cCgYIARAAGAQSNwF-L9Irg7GZxXmxvCuyAvJadZXlDA6sCPhTTpBGs6ztBGngSrmp1XwQhTY9fEevr4a0tOFQOCY";
+const REFRESH = "1//04Bu4WweiekqbCgYIARAAGAQSNwF-L9Iro-IPeRO2p8BYz5yf4mOTqhgNUIkp_0afZ3sO-tLJDiyMjQnhCWrKGIiIpmxuIm4BwIA";
 const oAuth = new googleapis_1.google.auth.OAuth2(GOOGLE_ID, GOOGLE_SECRET, REFRESH);
 oAuth.setCredentials({ refresh_token: REFRESH });
 const colaboratoremailEnv = (sender) => __awaiter(void 0, void 0, void 0, function* () {
@@ -129,7 +129,7 @@ const verifyStaffEmailByAdmin = (user) => __awaiter(void 0, void 0, void 0, func
         const transporter = nodemailer_1.default.createTransport({
             service: "gmail",
             auth: {
-                user: "okwolig60@gmail.com",
+                user: "aclassconsultsenquiry@gmail.com",
                 type: "OAuth2",
                 clientId: GOOGLE_ID,
                 clientSecret: GOOGLE_SECRET,
@@ -149,8 +149,8 @@ const verifyStaffEmailByAdmin = (user) => __awaiter(void 0, void 0, void 0, func
             id: user === null || user === void 0 ? void 0 : user._id
         });
         let mailerOptions = {
-            from: "okwolig60@gmail.com",
-            to: `okwolig60@gmail.com`,
+            from: "aclassconsultsenquiry@gmail.com",
+            to: `aclassconsultsenquiry@gmail.com`,
             subject: "Contact Form",
             html: readData,
         };
